@@ -2,7 +2,7 @@ class HealthChecksController < ApplicationController
   # GET /health_checks
   # GET /health_checks.json
   def index
-    @health_checks = HealthCheck.all
+    @health_checks = HealthCheck.order(:health_check_id)
 
     respond_to do |format|
       format.html # index.html.erb

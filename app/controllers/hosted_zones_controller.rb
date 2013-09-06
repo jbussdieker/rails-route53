@@ -2,7 +2,7 @@ class HostedZonesController < ApplicationController
   # GET /hosted_zones
   # GET /hosted_zones.json
   def index
-    @hosted_zones = HostedZone.all
+    @hosted_zones = HostedZone.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
