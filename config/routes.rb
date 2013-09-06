@@ -1,4 +1,5 @@
 Route53::Application.routes.draw do
+  root :to => 'hosted_zones#index'
   resources :hosted_zones
 
 
