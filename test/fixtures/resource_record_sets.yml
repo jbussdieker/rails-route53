@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hosted_zone_id: 1
+  name: MyString
+  type: 
+  ttl: 1
+  resource_records: MyString
+  set_identifier: MyString
+  weight: 1
+  region: MyString
+  alias_target: MyString
+  health_check_id: MyString
+  failover: MyString
+
+two:
+  hosted_zone_id: 1
+  name: MyString
+  type: 
+  ttl: 1
+  resource_records: MyString
+  set_identifier: MyString
+  weight: 1
+  region: MyString
+  alias_target: MyString
+  health_check_id: MyString
+  failover: MyString
