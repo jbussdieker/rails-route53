@@ -7,18 +7,16 @@
 
 <table class="table table-bordered table-striped table-hover">
   <tr>
-    <th>Zone</th>
     <th>Name</th>
-    <th></th>
+    <th>Zone</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @hosted_zones.each do |hosted_zone| %>
   <tr>
+    <td><%= link_to hosted_zone.name, hosted_zone %></td>
     <td><%= hosted_zone.zone_id %></td>
-    <td><%= hosted_zone.name %></td>
-    <td><%= link_to 'Show', hosted_zone %></td>
     <td><%= link_to 'Edit', edit_hosted_zone_path(hosted_zone) %></td>
     <td><%= link_to 'Destroy', hosted_zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
