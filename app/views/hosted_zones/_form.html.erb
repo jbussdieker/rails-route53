@@ -1,0 +1,19 @@
+<%= form_for(@hosted_zone, html: {class: 'form-horizontal'}) do |f| %>
+  <div class="form-group<%= " has-error" if @hosted_zone.errors.messages.has_key? :zone_id %>">
+    <%= f.label :zone_id, class: 'control-label' %>
+    <%= f.text_field :zone_id, class: 'form-control' %>
+    <% @hosted_zone.errors.messages[:zone_id].each do |message| %>
+      <%= f.label message, class: 'help-block' %>
+    <% end %>
+  </div>
+  <div class="form-group<%= " has-error" if @hosted_zone.errors.messages.has_key? :name %>">
+    <%= f.label :name, class: 'control-label' %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <% @hosted_zone.errors.messages[:name].each do |message| %>
+      <%= f.label message, class: 'help-block' %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.submit nil, class: 'btn btn-primary' %>
+  </div>
+<% end %>

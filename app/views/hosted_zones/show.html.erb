@@ -1,0 +1,20 @@
+<br/>
+<% if notice %>
+  <p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<p>
+  <%= link_to 'Edit', edit_hosted_zone_path(@hosted_zone), class: 'btn btn-primary' %>
+  <%= link_to 'Back', hosted_zones_path, class: 'btn btn-primary' %>
+</p>
+
+<p>
+  <b>Zone:</b>
+  <%= @hosted_zone.zone_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @hosted_zone.name %>
+</p>
+
