@@ -1,5 +1,5 @@
 class HostedZone < ActiveRecord::Base
-  attr_accessible :name, :zone_id
+  attr_accessible :hosted_zone_id, :name
 
   def self.sync
     r53 = AWS::Route53.new

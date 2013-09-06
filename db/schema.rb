@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(:version => 20130906161656) do
   end
 
   create_table "hosted_zones", :force => true do |t|
-    t.string   "zone_id"
+    t.string   "hosted_zone_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  zone_id: MyString
+  hosted_zone_id: MyString
   name: MyString
 
 two:
-  zone_id: MyString
+  hosted_zone_id: MyString
   name: MyString

@@ -18,7 +18,7 @@ class HostedZonesControllerTest < ActionController::TestCase
 
   test "should create hosted_zone" do
     assert_difference('HostedZone.count') do
-      post :create, hosted_zone: { name: @hosted_zone.name, zone_id: @hosted_zone.zone_id }
+      post :create, hosted_zone: { name: @hosted_zone.name, hosted_zone_id: @hosted_zone.hosted_zone_id }
     end
 
     assert_redirected_to hosted_zone_path(assigns(:hosted_zone))
@@ -35,7 +35,7 @@ class HostedZonesControllerTest < ActionController::TestCase
   end
 
   test "should update hosted_zone" do
-    put :update, id: @hosted_zone, hosted_zone: { name: @hosted_zone.name, zone_id: @hosted_zone.zone_id }
+    put :update, id: @hosted_zone, hosted_zone: { name: @hosted_zone.name, hosted_zone_id: @hosted_zone.hosted_zone_id }
     assert_redirected_to hosted_zone_path(assigns(:hosted_zone))
   end
 

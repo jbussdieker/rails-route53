@@ -16,7 +16,7 @@
 <% @hosted_zones.each do |hosted_zone| %>
   <tr>
     <td><%= link_to hosted_zone.name, hosted_zone %></td>
-    <td><%= hosted_zone.zone_id %></td>
+    <td><%= hosted_zone.hosted_zone_id %></td>
     <td><%= link_to 'Edit', edit_hosted_zone_path(hosted_zone) %></td>
     <td><%= link_to 'Destroy', hosted_zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
