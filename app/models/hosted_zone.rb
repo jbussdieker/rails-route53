@@ -1,5 +1,30 @@
 class HostedZone < ActiveRecord::Base
   attr_accessible :hosted_zone_id, :name
+  has_many :resource_record_sets
+
+  def list_resource_record_sets
+    client = AWS::Route53::Client.new
+    list = []
+    done = false
+    next_record = nil
+    next_type = nil
+    while done == false
+      options = {:hosted_zone_id => hosted_zone_id}
+      options.merge!(:start_record_name => next_record) if next_record
+      options.merge!(:start_record_type => next_type) if next_type
+      resp = client.list_resource_record_sets(options)
+      resp[:resource_record_sets].each do |record|
+        list << record
+      end
+      if resp[:is_truncated]
+        next_record = resp[:next_record_name]
+        next_type = resp[:next_record_type]
+      else
+        done = true
+      end
+    end
+    list
+  end
 
   def self.list_hosted_zones
     client = AWS::Route53::Client.new
@@ -20,6 +45,42 @@ class HostedZone < ActiveRecord::Base
       end
     end
     list
+  end
+
+  def sync
+    local_list = resource_record_sets
+    remote_list = list_resource_record_sets
+
+    # Create missing local ones
+    remote_list.each do |rrs|
+      local = local_list.find do |item|
+        item.name == rrs[:name] &&
+        item.type == rrs[:type] &&
+        item.set_identifier == rrs[:set_identifier]
+      end
+
+      if local
+      else
+        record = rrs
+        resource_record_sets.create(record)
+      end
+    end
+
+    # Delete missing remote ones
+    local_list.each do |rrs|
+      remote = remote_list.find do |item|
+        rrs.name == item[:name] &&
+        rrs.type == item[:type] &&
+        rrs.set_identifier == item[:set_identifier]
+      end
+
+      if remote
+      else
+        hosted_zone.destroy
+      end
+    end
+
+    nil
   end
 
   def self.sync

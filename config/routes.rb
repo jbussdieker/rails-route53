@@ -1,6 +1,9 @@
 Route53::Application.routes.draw do
   root :to => 'hosted_zones#index'
   resources :hosted_zones do
+    member do
+      get 'sync_records'
+    end
     collection do
       get 'sync'
     end

@@ -32,6 +32,18 @@ class HostedZonesController < ApplicationController
     end
   end
 
+  # GET /hosted_zones/1/sync_records
+  # GET /hosted_zones/1/sync_records.json
+  def sync_records
+    @hosted_zone = HostedZone.find(params[:id])
+    @hosted_zone.sync
+
+    respond_to do |format|
+      format.html { redirect_to @hosted_zone }
+      format.json { redirect_to @hosted_zone }
+    end
+  end
+
   # GET /hosted_zones/new
   # GET /hosted_zones/new.json
   def new

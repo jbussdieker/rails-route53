@@ -5,6 +5,7 @@
 
 <p>
   <%= link_to 'Edit', edit_hosted_zone_path(@hosted_zone), class: 'btn btn-primary' %>
+  <%= link_to 'Sync', sync_records_hosted_zone_path(@hosted_zone), class: 'btn btn-primary' %>
   <%= link_to 'Back', hosted_zones_path, class: 'btn btn-primary' %>
 </p>
 
@@ -18,3 +19,26 @@
   <%= @hosted_zone.name %>
 </p>
 
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>TTL</th>
+    <th>Region</th>
+    <th>Weight</th>
+    <th>Resource Records</th>
+    <th>Alias Target</th>
+  </tr>
+
+<% @hosted_zone.resource_record_sets.each do |rrs| %>
+  <tr>
+    <td><%= rrs[:name] %></td>
+    <td><%= rrs[:type] %></td>
+    <td><%= rrs[:ttl] %></td>
+    <td><%= rrs[:region] %></td>
+    <td><%= rrs[:weight] %></td>
+    <td><%= rrs[:resource_records] %></td>
+    <td><%= rrs[:alias_target] %></td>
+  </tr>
+<% end %>
+</table>

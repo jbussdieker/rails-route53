@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906161656) do
+ActiveRecord::Schema.define(:version => 20130906171552) do
 
   create_table "health_checks", :force => true do |t|
     t.string   "health_check_id"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(:version => 20130906161656) do
     t.string   "name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "resource_record_sets", :force => true do |t|
+    t.integer  "hosted_zone_id"
+    t.string   "name"
+    t.string   "type"
+    t.integer  "ttl"
+    t.string   "resource_records"
+    t.string   "set_identifier"
+    t.integer  "weight"
+    t.string   "region"
+    t.string   "alias_target"
+    t.string   "health_check_id"
+    t.string   "failover"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
