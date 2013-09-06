@@ -5,6 +5,7 @@ Route53::Application.routes.draw do
       get 'sync'
     end
   end
+  resources :health_checks
 
 
   # The priority is based upon order of creation:

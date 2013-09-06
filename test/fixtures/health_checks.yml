@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  health_check_id: MyString
+  ip_address: MyString
+  port: 1
+  type: 
+  resource_path: MyString
+  fully_qualified_domain_name: MyString
+
+two:
+  health_check_id: MyString
+  ip_address: MyString
+  port: 1
+  type: 
+  resource_path: MyString
+  fully_qualified_domain_name: MyString
