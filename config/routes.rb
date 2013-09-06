@@ -1,6 +1,10 @@
 Route53::Application.routes.draw do
   root :to => 'hosted_zones#index'
-  resources :hosted_zones
+  resources :hosted_zones do
+    collection do
+      get 'sync'
+    end
+  end
 
 
   # The priority is based upon order of creation:

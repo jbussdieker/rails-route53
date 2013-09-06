@@ -10,6 +10,17 @@ class HostedZonesController < ApplicationController
     end
   end
 
+  # GET /hosted_zones/sync
+  # GET /hosted_zones/sync.json
+  def sync
+    HostedZone.sync
+
+    respond_to do |format|
+      format.html { redirect_to hosted_zones_path }
+      format.json { redirect_to hosted_zones_path }
+    end
+  end
+
   # GET /hosted_zones/1
   # GET /hosted_zones/1.json
   def show
