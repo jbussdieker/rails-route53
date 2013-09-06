@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906153034) do
+ActiveRecord::Schema.define(:version => 20130906161656) do
+
+  create_table "health_checks", :force => true do |t|
+    t.string   "health_check_id"
+    t.string   "ip_address"
+    t.integer  "port"
+    t.string   "type"
+    t.string   "resource_path"
+    t.string   "fully_qualified_domain_name"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
 
   create_table "hosted_zones", :force => true do |t|
     t.string   "zone_id"

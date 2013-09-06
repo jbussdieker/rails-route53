@@ -1,0 +1,31 @@
+<h2>Health Checks</h2>
+
+<p>
+  <%= link_to 'New Health Check', new_health_check_path, class: 'btn btn-primary' %>
+</p>
+
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>Health check</th>
+    <th>Ip address</th>
+    <th>Port</th>
+    <th>Type</th>
+    <th>Resource path</th>
+    <th>Fully qualified domain name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @health_checks.each do |health_check| %>
+  <tr>
+    <td><%= link_to health_check.health_check_id, health_check %></td>
+    <td><%= health_check.ip_address %></td>
+    <td><%= health_check.port %></td>
+    <td><%= health_check.type %></td>
+    <td><%= health_check.resource_path %></td>
+    <td><%= health_check.fully_qualified_domain_name %></td>
+    <td><%= link_to 'Edit', edit_health_check_path(health_check) %></td>
+    <td><%= link_to 'Destroy', health_check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

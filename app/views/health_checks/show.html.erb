@@ -1,0 +1,40 @@
+<br/>
+<% if notice %>
+  <p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<p>
+  <%= link_to 'Edit', edit_health_check_path(@health_check), class: 'btn btn-primary' %>
+  <%= link_to 'Back', health_checks_path, class: 'btn btn-primary' %>
+</p>
+
+<p>
+  <b>Health check:</b>
+  <%= @health_check.health_check_id %>
+</p>
+
+<p>
+  <b>Ip address:</b>
+  <%= @health_check.ip_address %>
+</p>
+
+<p>
+  <b>Port:</b>
+  <%= @health_check.port %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @health_check.type %>
+</p>
+
+<p>
+  <b>Resource path:</b>
+  <%= @health_check.resource_path %>
+</p>
+
+<p>
+  <b>Fully qualified domain name:</b>
+  <%= @health_check.fully_qualified_domain_name %>
+</p>
+
