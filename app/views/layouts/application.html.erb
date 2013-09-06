@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Route53</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Hosted Zones", hosted_zones_path %></li>
+        <li><%= link_to "Health Checks", health_checks_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
   <%= yield %>
 </div>
