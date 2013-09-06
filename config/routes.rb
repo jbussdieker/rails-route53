@@ -5,7 +5,11 @@ Route53::Application.routes.draw do
       get 'sync'
     end
   end
-  resources :health_checks
+  resources :health_checks do
+    collection do
+      get 'sync'
+    end
+  end
 
 
   # The priority is based upon order of creation:

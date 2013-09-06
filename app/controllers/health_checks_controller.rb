@@ -10,6 +10,17 @@ class HealthChecksController < ApplicationController
     end
   end
 
+  # GET /health_checks/sync
+  # GET /health_checks/sync.json
+  def sync
+    HealthCheck.sync
+
+    respond_to do |format|
+      format.html { redirect_to health_checks_path }
+      format.json { redirect_to health_checks_path }
+    end
+  end
+
   # GET /health_checks/1
   # GET /health_checks/1.json
   def show
